@@ -8,8 +8,9 @@ app              = express();
 // get rid of depricated: mongoose error while editing the blog post
 mongoose.set("useFindAndModify", false);
 // APP CONFIG
+const url = process.env.DATABASEURL || "mongodb://localhost:27017/restful_blog_app";
 mongoose
-          .connect("mongodb://localhost:27017/restful_blog_app", {
+          .connect(url, {
               useNewUrlParser: true,
               useUnifiedTopology: true
             })
